@@ -74,6 +74,12 @@ For each round of indications, we get two data packets of 20 bytes each. The mos
 
 <img width="100%" src="INDOOR_AND_CH1_TO_3_TH_DATA_types.jpg" />
 
+You can also retrieve the battery level:
+
+```bash
+$ sudo gatttool -b <BLE ADDRESS> -t random --char-read --handle=0x0031
+```
+
 ### Retrieve temperature data via Python
 
 First install [bluepy](https://github.com/IanHarvey/bluepy):
