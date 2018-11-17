@@ -2,6 +2,8 @@
 
 Connect a Raspberry Pi Zero W to an Oregon Scientific BLE temperature station and read temperature values in Python.
 
+Credit: [Arnø](https://www.instructables.com/id/Connect-Raspberry-Pi-to-Oregon-Scientific-BLE-Weat/)
+
 <img width="100%" src="IDTW211R-Oregon-Scientific-weather-station.jpg" />
 
 ## Hardware
