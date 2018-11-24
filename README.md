@@ -86,7 +86,7 @@ Or use the `bluetoothctl` tool ([Adafruit video](https://www.youtube.com/watch?v
 $ sudo bluetoothctl
 [bluetooth]# scan on
 [bluetooth]# connect <BLE ADDRESS>
-[IDTW211R]# read 00002a19-0000-1000-8000-00805f9b34fb
+[IDTW211R]# select-attribute /org/bluez/hci0/dev_<BLE ADDRESS>/service002f/char0030
 [IDTW211R:/service002f/char0030]# read
 Attempting to read /org/bluez/hci0/dev_<BLE ADDRESS>/service002f/char0030
 [CHG] Attribute /org/bluez/hci0/dev_<BLE ADDRESS>/service002f/char0030 Value: 0x64
