@@ -80,6 +80,18 @@ You can also retrieve the battery level:
 $ sudo gatttool -b <BLE ADDRESS> -t random --char-read --handle=0x0031
 ```
 
+Or use the `bluetoothctl` tool ([Adafruit video](https://www.youtube.com/watch?v=5fQR2PHMDWE&feature=youtu.be&t=4644)):
+
+```bash
+$ sudo bluetoothctl
+[bluetooth]# scan on
+[bluetooth]# connect <BLE ADDRESS>
+[IDTW211R]# read 00002a19-0000-1000-8000-00805f9b34fb
+[IDTW211R:/service002f/char0030]# read
+Attempting to read /org/bluez/hci0/dev_<BLE ADDRESS>/service002f/char0030
+[CHG] Attribute /org/bluez/hci0/dev_<BLE ADDRESS>/service002f/char0030 Value: 0x64
+```
+
 ### Retrieve temperature data via Python
 
 First install [bluepy](https://github.com/IanHarvey/bluepy):
