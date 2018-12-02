@@ -78,6 +78,11 @@ You can also retrieve the battery level:
 
 ```bash
 $ sudo gatttool -b <BLE ADDRESS> -t random --char-read --handle=0x0031
+
+or
+
+$ sudo gatttool -b <BLE ADDRESS> -t random --char-read --uuid=0x2A19
+
 ```
 
 Or use the `bluetoothctl` tool ([Adafruit video](https://www.youtube.com/watch?v=5fQR2PHMDWE&feature=youtu.be&t=4644)):
