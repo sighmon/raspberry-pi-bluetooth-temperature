@@ -35,6 +35,8 @@ class WeatherStation:
 		try:
 			self.p = Peripheral(mac, ADDR_TYPE_RANDOM)
 			self.p.setDelegate(NotificationDelegate())
+			self.battery_svc = self.p.getServiceByUUID("0000180f-0000-1000-8000-00805f9b34fb")  # Standard Battery Service UUID
+			self.battery_char = self.battery_svc.getCharacteristics("00002a19-0000-1000-8000-00805f9b34fb")[0]  # Battery Level Characteristic UUID
 			logging.debug('WeatherStation connected !')
 		except BTLEException:
 			self.p = 0
@@ -130,6 +132,14 @@ class WeatherStation:
 			return temp
 		else:
 			return None
+
+	def readBatteryLevel(self):
+		if self.battery_char:
+				battery_level = self.battery_char.read()
+				battery_level = ord(battery_level)  # Convert byte to integer
+				logging.debug('Battery level: %d%%', battery_level)
+				return battery_level
+		return None
 			
 	def disconnect(self):
 		self.p.disconnect()
@@ -202,6 +212,7 @@ if __name__=="__main__":
 				# WeatherStation data received
 				indoor = weatherStation.getIndoorTemp()
 				outdoor = weatherStation.getOutdoorTemp()
+				battery_level = weatherStation.readBatteryLevel()
 			else:
 				logging.debug('No data received from WeatherStation')
 			
