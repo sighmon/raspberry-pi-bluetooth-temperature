@@ -143,7 +143,7 @@ $ crontab -e
 @hourly python /home/pi/temperature.py <BLE ADDRESS> >> /home/pi/cron-temperature.log
 ```
 
-## TODO
+## Prometheus and Homekit
 
-* Setup a [Flask](http://flask.pocoo.org) app to expose the temperature getting via an API - maybe use https://www.flaskapi.org
-* Connect that Flask app to Apple HomeKit using https://github.com/ikalchev/HAP-python
+* Expose these readings via Prometheus: https://github.com/sighmon/oregon-temperature-prometheus
+* Add the readings to Homekit: https://github.com/sighmon/homekit-oregon-temperature
